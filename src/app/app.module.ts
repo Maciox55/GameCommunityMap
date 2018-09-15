@@ -10,7 +10,7 @@ import { MapComponent } from './components/map/map.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-
+import { AdminComponent} from './components/admin/admin.component'
 const routes: Routes = [
   { path: 'crisis-center', component: MapComponent },
   { path: 'register',      component: RegisterComponent },
@@ -24,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     MapComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -13,29 +13,31 @@
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
-    "@angular/cli": "~6.2.1",
-    "@angular/compiler-cli": "^6.1.0",
-    "@angular/language-service": "^6.1.0",
-    "@types/jasmine": "~2.8.6",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
     "@angular/animations": "^6.1.7",
     "@angular/cdk": "^6.4.7",
+    "@angular/cli": "~6.2.1",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
+    "@angular/compiler-cli": "^6.1.0",
     "@angular/core": "^6.1.0",
     "@angular/flex-layout": "^6.0.0-beta.18",
     "@angular/forms": "^6.1.0",
     "@angular/http": "^6.1.0",
+    "@angular/language-service": "^6.1.0",
     "@angular/material": "^6.4.7",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@types/jasmine": "~2.8.6",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
     "hammerjs": "^2.0.8",
     "leaflet": "^1.3.4",
+    "leaflet-rastercoords": "^1.0.3",
     "node": "^9.11.1",
+    "nodemon": "^1.18.4",
     "rxjs": "^6.3.2",
     "zone.js": "~0.8.26"
   },
@@ -59,7 +61,7 @@
     "typescript": "~2.9.2"
   },
   "engines": {
-    "node":"9.11.1",
-    "npm":"5.6.0"
+    "node": "9.11.1",
+    "npm": "5.6.0"
   }
 }
