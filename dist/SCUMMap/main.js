@@ -331,7 +331,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var defaultCoords = [-116.46035048129474, 167.53125];
+var defaultCoords = [-127.73484714925428, 128.5];
 var defaultZoom = 3;
 var MapComponent = /** @class */ (function () {
     function MapComponent() {
@@ -360,7 +360,7 @@ var MapComponent = /** @class */ (function () {
         var imageBounds = [[-90, 180], [90, -180]];
         //L.imageOverlay('assets/SCUM_Map.png',imageBounds,{attribution:"Maciox55"}).addTo(map);
         //L.circle([-116.46035048129474,167.53125], {radius: 10}).addTo(map).on("click", circleClick);
-        L.tileLayer('assets/SCUMTILES/{z}/{x}/{y}.png', { attribution: "Maciox55", minZoom: 1, maxZoom: 8, maxNativeZoom: 3, noWrap: true }).addTo(map);
+        L.tileLayer('assets/SCUMTILES/{z}/{x}/{y}.png', { attribution: "Maciox55", bounds: [[0, 0], [-256, 256]], minZoom: 1, maxZoom: 8, maxNativeZoom: 3, noWrap: true }).addTo(map);
         L.imageOverlay('assets/Trenchylvania.png', towns.trenchville, { opacity: 1 }).addTo(map);
         L.imageOverlay('assets/DewhurstCorrected.png', towns.dewhurst, { opacity: 1 }).addTo(map);
         L.imageOverlay('assets/Craydon.png', towns.craydon, { opacity: 0.9 }).addTo(map);
