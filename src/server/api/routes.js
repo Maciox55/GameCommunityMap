@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const ObjectID = require('mongodb').ObjectID;
-const config = require('../config');
+const config = require('../');
 const User = require('../models/User');
 
 
