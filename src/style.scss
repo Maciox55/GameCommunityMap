@@ -8,6 +8,14 @@ body{
     background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 
 }
+#example-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    > #example-container *{
+        flex: 0 1 auto;
+    }
+}
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -21,6 +29,10 @@ body{
     position:absolute;
     font-size: 10px;
     left: 25%;
+    font-family:Arimo;
+    font-size: 24px;
+}
+.title{
     font-family:Arimo;
     font-size: 24px;
 }

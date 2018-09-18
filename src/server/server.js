@@ -1,11 +1,13 @@
 //Install express server
 const express = require('express');
 const app = express();
-const path = require('path');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const api = require('./api/routes');
-const config = require('./config');
-mongoose.connect('mongodb://admin:'+config.dbCreds+'@ds261302.mlab.com:61302/scumrp').then(()=> console.log('MongoDB connected...')).catch(err => console.log(err));;
+const path = require('path');
+
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
 // Serve only the static files form the dist directory
 const allowedExt = [
@@ -23,7 +25,14 @@ const allowedExt = [
   app.use('/dist/', express.static(__dirname+'/dist/SCUMMap/'))
 
 
-
+  app.get('*', function(req,res) {
+    if (allowedExt.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
+        res.sendFile(path.resolve(`dist/SCUMMap/${req.url}`));
+    } else {
+        res.sendFile(path.resolve('dist/SCUMMap/index.html'));
+        }
+  });
+  
 
 
 // Start the app by listening on the default Heroku port
