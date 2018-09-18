@@ -1,8 +1,11 @@
 //Install express server
 const express = require('express');
-const path = require('path');
-
 const app = express();
+const path = require('path');
+const mongoose = require('mongoose');
+const api = require('./api/routes');
+const config = require('./config');
+mongoose.connect('mongodb://admin:'+config.dbCreds+'@ds261302.mlab.com:61302/scumrp').then(()=> console.log('MongoDB connected...')).catch(err => console.log(err));;
 
 // Serve only the static files form the dist directory
 const allowedExt = [
@@ -16,15 +19,10 @@ const allowedExt = [
     '.ttf',
     '.svg',
   ];
+  app.use('/api', api);
   app.use('/dist/', express.static(__dirname+'/dist/SCUMMap/'))
 
-app.get('*', function(req,res) {
-    if (allowedExt.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-        res.sendFile(path.resolve(`dist/SCUMMap/${req.url}`));
-      } else {
-        res.sendFile(path.resolve('dist/SCUMMap/index.html'));
-      }
-});
+
 
 
 

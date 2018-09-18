@@ -36,6 +36,7 @@
     "hammerjs": "^2.0.8",
     "leaflet": "^1.3.4",
     "leaflet-rastercoords": "^1.0.3",
+    "mongoose": "^5.2.15",
     "node": "^9.11.1",
     "nodemon": "^1.18.4",
     "rxjs": "^6.3.2",
