@@ -2,11 +2,14 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const ObjectID = require('mongodb').ObjectID;
-const config = require('../config');
+const config = require('../config.js');
 const User = require('../models/User');
+const Label = require('../models/Label');
 
 
-mongoose.connect('mongodb://admin:'+config.dbCreds+'@ds261302.mlab.com:61302/scumrp').then(()=> console.log('MongoDB connected...')).catch(err => console.log(err));;
+
+console.log(config.dbCreds);
+mongoose.connect("mongodb://admin:"+config.dbCreds+"@ds261302.mlab.com:61302/scumrp").then(()=> console.log('MongoDB connected...')).catch(err => console.log(err));;
 var db = mongoose.connection;
 db.on('error',function(err){
     console.log(err);
@@ -57,7 +60,6 @@ router.post('/register',(req,res) =>{
 router.post('/login',(req,res)=>{
     var userInfo = new User({
         username: req.body.username,
-        email: req.body.email,
         password: req.body.password,
         salt: null,
         passwordHash:null

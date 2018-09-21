@@ -1,13 +1,40 @@
-<h1 class="title">Member Login</h1>
-<div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Username">
-  </mat-form-field>
-  <mat-form-field>
-      <input matInput placeholder="Password">
-  </mat-form-field>
-  <div class="example-container">
-    <button mat-button color="warn" (click)='onClose();'>Close</button>
-    <button mat-button color="primary" (click)='onSubmit();'>Submit</button>
+
+  <h1 *ngIf="isRegistered" class="title">Member Registration</h1>
+  <h1 *ngIf="!isRegistered" class="title">Member Login</h1>
+
+  <div>
+    <form fxLayout="column" fxLayoutGap="5px" novalidate #registrationForm="ngForm" class="dialogContainer">
+      <mat-form-field>
+        <input matInput ngModel name="login" minlength="3" #login="ngModel" placeholder="Username" type="text" id="login">
+      </mat-form-field>
+      <mat-chip-list color="warn" *ngIf="login.invalid && (login.dirty || login.touched)">
+        <mat-chip color="warn"  *ngIf="login.errors.required">Username Required</mat-chip>
+        <mat-chip color="warn"  *ngIf="login.errors.minlength">Username too short</mat-chip>
+      </mat-chip-list>
+
+      <mat-form-field>
+        <input matInput ngModel name="password" minlength="4" #password="ngModel" placeholder="Password" type="password">
+      </mat-form-field>
+      <mat-chip-list *ngIf="password.invalid && (password.dirty || password.touched)">
+        <mat-chip color="warn"  *ngIf="password.errors.required">Password Required</mat-chip>
+        <mat-chip color="warn"  *ngIf="password.errors.minlength">Password too short</mat-chip>
+      </mat-chip-list>
+
+      <mat-form-field *ngIf="isRegistered">
+        <input matInput ngModel name="keyPhrase" #keyPhrase="ngModel" placeholder="Registration Key">
+      </mat-form-field>
+      <mat-slide-toggle
+          class="example-margin"
+          color="primary"
+          [(ngModel)]="isRegistered"
+          name="needsRegistration"
+          [checked]="isRegistered">
+        <span *ngIf="!isRegistered">Don't have an account?</span>
+        <span *ngIf="isRegistered">Already have an account?</span>
+      </mat-slide-toggle>
+      <div fxLayout="row">
+          <button fxFlex="1 1 80px" fxFlexAlign="start" mat-button color="warn" (click)='onClose();' class="closeBtn">Close</button>
+        <button fxFlex="1 1 80px" fxFlexAlign="end" mat-button color="primary" (click)='onSubmit(registrationForm.value);'>Submit</button>
+      </div>
+    </form>
   </div>
-</div>

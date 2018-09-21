@@ -1,3 +1,27 @@
-<p id="test"></p>
-<div id="map">
-</div>
+<mat-sidenav-container class="sidenav-wrapper">
+    <mat-sidenav #drawer class="end-sidenav" position="end" mode="side">
+       <h1>This be a menu of sorts</h1>
+       <p>One might perhaps call it a toolbox</p>
+       <small>Don't hate, as this is project is still being erect, I mean under construction</small>
+        <br>
+       <small>So what that this toolbox is empty, Rome wasnt built in a day.</small>
+       <br>
+       <small>Trench is a spy for CW, yes Trench, we know.</small>
+    </mat-sidenav>
+    <mat-sidenav-content class="mat-sidenav-content">
+        <p id="test"></p>
+        <button mat-fab color="secondary" id="toggleButton" (click)="toggleSidenav(drawer)">
+            <ng-container
+                *ngIf="sideNavOpen; then opened; else closed">
+            </ng-container>
+            <ng-template #opened>
+                <mat-icon class="iconDark">chevron_right</mat-icon>
+            </ng-template>
+            <ng-template #closed>
+                <mat-icon class="iconDark">chevron_left</mat-icon>
+            </ng-template>
+        </button>
+        <div id="map">
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
